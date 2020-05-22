@@ -170,7 +170,7 @@ vector<vector<vector<double>>> Getcenters(uslovie A) {
 	vector<double> normn(3),nup(3),bin(3),ugl(3),nool(3,0);
 	double H, x;
 	H = 2 * A.a0 * tan((A.alpha * pi) / 360);
-	x = H / A.h; // πεΰλόνϋι πΰημεπ οθκρελÿ
+	x = H / A.h; // Γ°Γ₯Γ Γ«ΓΌΓ­Γ»Γ© Γ°Γ Γ§Γ¬Γ₯Γ° Γ―Γ¨ΓͺΓ±Γ₯Γ«ΓΏ
 	for (int i = 0;i < 3;i++) {
 		normn[i] = A.normal[i] / sqrt(pow(A.normal[0],2) + pow(A.normal[1], 2) + pow(A.normal[2], 2));
 	}
@@ -195,7 +195,7 @@ vector<vector<vector<double>>> Getcenters(uslovie A) {
 		for (int j = 0;unsigned int(j) < centers[i].size();j++) {
 #pragma omp parallel for
 			for (int k = 0;unsigned int(k) < centers[i][j].size();k++) {
-				centers[i][j][k] = ugl[k] - (0.5 +j)*x*bin[k] - (0.5 + i)*x*nup[k];
+				centers[i][j][k] = ugl[k] - (0.5 +j)*x*nup[k] - (0.5 + i)*x*bin[k];
 			}
 		}
 	}
